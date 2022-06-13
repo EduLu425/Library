@@ -9,10 +9,38 @@
 </head>
 <body>
     <div id="sidebar">
-
+        <h2>Enter book info here:</h2>
+        <ul>
+            <li class="text-input">
+                <label for="title">Title</label>
+                <input type="text" id="title">
+            </li>
+            <li class="text-input">
+                <label for="author">Author</label>
+                <input type="text" id="author">                
+            </li>
+            <li class="text-input">
+                <label for="pages">Pages</label>
+                <input type="tele" id="pages">              
+            </li>
+            <li>
+                <label for="read">Read?</label>
+                <select name="read" id="read">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </li>
+            <li>
+                <button id="submit">Submit</button>
+            </li>
+        </ul>
+        
     </div>
     <div id="header">
-
+        <h1>Library</h1>
+        <p>Keep track of books you have read or want to read, just enter their info in the sidebar
+        </p>
     </div>
     <div id="content">
         
