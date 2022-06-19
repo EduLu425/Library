@@ -14,6 +14,14 @@ const contentDiv = document.getElementById('content');
 
 const bookCard = document.createElement('div');
 
+const changeReadButton = document.createElement('button');
+
+const bookForm = document.getElementById('form-popup');
+
+const popUpButton = document.getElementById('popup-button');
+
+const closeButton = document.getElementById('close-icon');
+
 let titleInput = document.getElementById('title');
 
 let authorInput = document.getElementById('author');
@@ -44,6 +52,28 @@ function generateLibrary () {
     }
 }
 
+
+
+function toggleReadStatus() {
+
+}
+
+
+
+function openForm() {
+    bookForm.style.display = 'block';
+}
+
+function closeForm() {
+    bookForm.style.display = 'none';
+}
+
+popUpButton.addEventListener('click', function(){
+    openForm()
+})
+
+
+
 function addBookToLibrary() {
     while (contentDiv.firstChild) {
         contentDiv.removeChild(contentDiv.lastChild)
@@ -54,11 +84,17 @@ function addBookToLibrary() {
     newBook.pages = pagesInput.value;
     newBook.read = readInput.value;
     myLibrary.push(newBook);
+    console.log(myLibrary);
     generateLibrary();
+    closeForm();
 }
 
 const submitButton = document.getElementById('submit');
 
-submitButton.addEventListener('click', function(){
-    addBookToLibrary()
-})
+submitButton.addEventListener('click', function() {addBookToLibrary()
+
+}, false);
+
+closeButton.addEventListener('click', function() {closeForm()
+
+});
