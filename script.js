@@ -1,14 +1,15 @@
 let myLibrary = [];
 
-function book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function () {
-        return `${title} by ${author}, ${pages} pages, ${read}.`
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
     }
+    
 }
+
 
 const contentDiv = document.getElementById('content');
 
@@ -33,6 +34,12 @@ let authorInput = document.getElementById('author');
 let pagesInput = document.getElementById('pages');
 
 let readInput = document.getElementById('read');
+
+const stopSubmission = function(e) {
+    e.preventDefault();
+}
+
+
 
 bookCard.setAttribute('class', 'book-card')
 
@@ -123,11 +130,7 @@ function turnOnReadButtons() {
 }
 
 function addBookToLibrary() {
-    let newBook = new book();
-    newBook.title = titleInput.value;
-    newBook.author = authorInput.value;
-    newBook.pages = pagesInput.value;
-    newBook.read = readInput.value;
+    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
     myLibrary.push(newBook);
     console.log(myLibrary);
     generateLibrary();
@@ -137,6 +140,9 @@ function addBookToLibrary() {
 }
 
 const submitButton = document.getElementById('submit');
+
+document.getElementById('input-form').addEventListener('submit', stopSubmission);
+
 
 submitButton.addEventListener('click', function() {
     addBookToLibrary()
